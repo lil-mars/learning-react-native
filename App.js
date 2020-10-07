@@ -1,76 +1,45 @@
-import React from 'react';
-import {StyleSheet, Text, View, Button, TouchableOpacity, Image, Alert} from 'react-native';
-import { LinearGradient }from 'expo-linear-gradient';
-
-import StudentsList from "./components/students";
-
+import React, {Fragment} from 'react';
+import {StyleSheet, Text, View, Button, Image, Alert} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
+import colors from "./app/src/utils/colors";
+import Form from './app/src/components/form'
+import Result from './app/src/components/result';
+import Footer from './app/src/components/footer'
 export default function App() {
     return (
-        <LinearGradient colors={['#343c44', '#58684c' ]} style={styles.background}>
-            <View>
-                <Image
-                    source={require('./assets/images/logo.png')}
-                    style={styles.logo}
-                    resizeMode='contain'
-                />
-                <Text style={styles.text}>Entrena y Compite por ser el mejor.</Text>
-
-                <TouchableOpacity onPress={pressed}>
-                    <Text style={styles.login}>
-                        Log In
-                    </Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={pressed}>
-                    <Text style={styles.signUp}>
-                        Sign Up
-                    </Text>
-                </TouchableOpacity>
-            </View>
-    </LinearGradient>
+        <Fragment>
+            <LinearGradient colors={['white' ]} style={styles.background}>
+                <View style={styles.title}>
+                    <Text style={styles.titleText}>COTIZADOR DE PRESTAMOS</Text>
+                </View>
+                <Form></Form>
+                <Result></Result>
+                <Footer></Footer>
+            </LinearGradient>
+        </Fragment>
     );
 }
 
 function pressed() {
     Alert.alert('Presed')
 }
+
 const styles = StyleSheet.create({
-    background: {
+    background:{
         width: '100%',
-        height: '100%',
+        height: '100%'
     },
-    logo:{
-        width: 280,
-        height: 280,
-        marginLeft: '15%',
-        marginTop: '10%'
+    title: {
+        backgroundColor: colors.primary,
+        alignItems: 'center',
+        height: 50,
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
     },
-    text: {
-        color: 'black',
-        marginTop: '-10%',
-        marginLeft: '20%',
-        marginBottom:'40%'
-    },
-    signUp: {
-        backgroundColor: '#343c44',
-        color: 'white',
-        width: "75%",
-        borderRadius: 25,
-        textAlign: 'center',
+    titleText: {
+        fontSize: 15,
         fontWeight: 'bold',
-        marginLeft: '11%',
-        padding: "2%",
-        fontSize:  24,
-        marginTop: '10%'
-    },
-    login: {
-        backgroundColor: '#a48c64',
-        color: 'white',
-        width: "75%",
-        borderRadius: 25,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginLeft: '11%',
-        padding: "2%",
-        fontSize:  24,
+        color: '#fff',
+        marginTop: 25
     }
 });
