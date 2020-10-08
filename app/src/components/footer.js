@@ -1,10 +1,12 @@
 import React from 'react';
 import {TouchableOpacity, View, StyleSheet, Text, Alert } from 'react-native';
 import colors from "../utils/colors";
-export default function Footer() {
+
+export default function Footer(props) {
+    const {calculate} = props;
     return (
         <View>
-            <TouchableOpacity onPress={f} style={{marginTop: '20%'}}>
+            <TouchableOpacity  onPress={calculate} style={{marginTop: '30%'}}>
                 <Text style={styles.button}>Calcular</Text>
             </TouchableOpacity>
         </View>
@@ -25,6 +27,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         padding: "2%",
         fontSize: 15,
+        shadowRadius: 10
     }
 });
 
